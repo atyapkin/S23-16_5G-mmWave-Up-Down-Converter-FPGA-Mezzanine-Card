@@ -3,7 +3,7 @@
 
 ---
 ### PCB Design File Documentation
-PCB design is in KiCad and all related files are located [here](S23-16_PCB/).
+PCB design is in KiCad and all related files are located [here](S23-16_PCB).
 
 <details>
 <summary>Schematic Files</summary>
@@ -45,7 +45,7 @@ Gerber and Drill files are located [here](S23-16_PCB/Fab_Files/Gerber) and use t
 | File Name | Description |
 | --- | --- |
 | [S23-16_PCB-F_Cu.gtl](S23-16_PCB/Fab_Files/Gerber/S23-16_PCB-F_Cu.gtl) | Front Copper |
-| [S23-16_PCB-In1.Cu.g2](S23-16_PCB/Fab_Files/Gerber/S23-16_PCB-In1.Cu.g2) | First Internal Copper |
+| [S23-16_PCB-In1.Cu.g2](S23-16_PCB/Fab_Files/Gerber/S23-16_PCB-In1_Cu.g2) | First Internal Copper |
 | [S23-16_PCB-In2_Cu.g3](S23-16_PCB/Fab_Files/Gerber/S23-16_PCB-In2_Cu.g3) | Second Internal Copper |
 | [S23-16_PCB-B_Cu.gbl](S23-16_PCB/Fab_Files/Gerber/S23-16_PCB-B_Cu.gbl) | Back Copper |
 | [S23-16_PCB-F_Paste.gtp](S23-16_PCB/Fab_Files/Gerber/S23-16_PCB-F_Paste.gtp) | Front Solder Paste (for stencil manufacturing) |
