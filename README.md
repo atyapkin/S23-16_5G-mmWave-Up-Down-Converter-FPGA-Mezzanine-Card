@@ -3,7 +3,7 @@
 
 ---
 ### PCB Design File Documentation
-PCB design is in KiCad and all related files are located [here](S23-16/).
+PCB design is in KiCad and all related files are located [here](S23-16_PCB/).
 
 <details>
 <summary>Schematic Files</summary>
