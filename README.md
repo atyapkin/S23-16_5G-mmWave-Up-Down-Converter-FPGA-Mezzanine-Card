@@ -64,5 +64,12 @@ Gerber and Drill files are located [here](S23-16_PCB/Fab_Files/Gerber) and use t
 
 </details>
 
+<details>
+<summary>Bill of Materials</summary>
+
+The BOM is located on our shared drive [here](https://docs.google.com/spreadsheets/d/1cGQh0S1Flq79aJkekWkryKJpKwCh67Sn/edit#gid=1397198774).
+
+</details>
+
 ---
 ### Microcontroller Code Documentation
