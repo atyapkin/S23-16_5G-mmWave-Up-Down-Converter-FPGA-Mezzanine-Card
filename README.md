@@ -60,6 +60,6 @@ Gerber and Drill files are located [here](S23-16_PCB/Fab_Files/Gerber) and use t
 | --- | --- |
 | [S23-16_PCB-NPTH.drl](S23-16_PCB/Fab_Files/Gerber/S23-16_PCB-NPTH.drl) | Non-plated Through Holes |
 | [S23-16_PCB-PTH.drl](S23-16_PCB/Fab_Files/Gerber/S23-16_PCB-PTH.drl) | Plated Through Holes |
-| [S23-16_PCB-front-in1.drl](S23-16_PCB/Fab_Files/Gerber/S23-16_PCB-front-in1.drl) | Blind Vias (these holes are optional, do not include if cost is an issue) |
+| [S23-16_PCB-front-in1.drl](S23-16_PCB/Fab_Files/Gerber/S23-16_PCB-front-in1.drl) | Blind Vias (optional fencing vias between layers 1&2) |
 
 </details>
