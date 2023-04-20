@@ -1,9 +1,9 @@
 # S23-16_5G-mmWave-Up-Down-Converter-FPGA-Mezzanine-Card
-Virginia Tech S23-16 Senior Design Team Repository
+### Virginia Tech S23-16 Senior Design Team Repository
 
+---
+### PCB Design File Documentation
 PCB design is in KiCad and all related files are located [here](S23-16/).
-
-
 
 <details>
 <summary>Schematic Files</summary>
@@ -63,3 +63,6 @@ Gerber and Drill files are located [here](S23-16_PCB/Fab_Files/Gerber) and use t
 | [S23-16_PCB-front-in1.drl](S23-16_PCB/Fab_Files/Gerber/S23-16_PCB-front-in1.drl) | Blind Vias (optional fencing vias between layers 1&2) |
 
 </details>
+
+---
+### Microcontroller Code Documentation
