@@ -69,18 +69,39 @@ The BOM is located on our shared drive [here](https://docs.google.com/spreadshee
 <details>
 <summary>PCB Stackup</summary>
 
-| Material | Thickness |
-| --- | --- |
+| Material | Thickness | Dielectric Constant | Loss Tangent |
+| --- | --- | --- | --- |
 | Copper | 1.4 mils (1 oz.) |
-| RO4003C | 8 mils |
+| RO4003C | 8 mils | 3.55 | 0.0027 |
 | Copper | 1.4 mils (1 oz.) |
-| Prepreg | ~40 mils |
+| Prepreg | ~40 mils | ~4 | ~0.02 |
 | Copper | 1.4 mils (1 oz.) |
-| RO4003C | 8 mils |
+| RO4003C | 8 mils | 3.55 | 0.0027 |
 | Copper | 1.4 mils (1 oz.) |
 | **Total** | **62 mils** |
 
 Note: Prepreg material is arbitrary, consult manufactuer.
+
+</details>
+
+<details>
+<summary>Design Rules</summary>
+
+### Copper
+| Parameter | Distance |
+| --- | --- |
+| Minimum Clearance | 5 mils |
+| Minimum Track Width | 8 mils | 
+| Minimum Annular Ring Width (Vias) | 5 mils | 
+| Minimum Via Diameter | 19 mils | 
+| Copper to Hole Clearance | 5 mils | 
+| Copper to Edge Clearance | 10 mils |
+
+### Through Holes
+| Parameter | Distance | 
+| --- | --- |
+| Minimum Through Hole Diameter | 9 mils | 
+| Hole to Hole Clearance | 10 mils |
 
 </details>
 
