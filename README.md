@@ -82,5 +82,7 @@ The BOM is located on our shared drive [here](https://docs.google.com/spreadshee
 
 Note: Prepreg material is arbitrary, consult manufactuer.
 
+</details>
+
 ---
 ### Microcontroller Code Documentation
