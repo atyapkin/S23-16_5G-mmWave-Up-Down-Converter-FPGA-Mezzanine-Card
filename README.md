@@ -1,4 +1,4 @@
-# S23-16_5G-mmWave-Up-Down-Converter-FPGA-Mezzanine-Card
+# [S23-16] 5G mmWave Up Down Converter FPGA Mezzanine Card
 ### Virginia Tech S23-16 Senior Design Team Repository
 
 ---
@@ -7,8 +7,6 @@ PCB design is in KiCad and all related files are located [here](S23-16_PCB).
 
 <details>
 <summary>Schematic Files</summary>
-
-### Schematic Files
 
 | File Name | Description |
 | --- | --- |
@@ -20,14 +18,11 @@ PCB design is in KiCad and all related files are located [here](S23-16_PCB).
 | [Synthesizer.kicad_sch](S23-16_PCB/Synthesizer.kicad_sch) | Synthesizer Schematic |
 | [FMC_plus.kicad_sch](S23-16_PCB/FMC_plus.kicad_sch) | Digital/Power Interface Schematic |
 
-
-### 
 </details>
 
 <details>
 <summary>PCB Files</summary>
 
-### PCB Files
 | File Name | Description |
 | --- | --- |
 | [S23-16_PCB.kicad_pcb](S23-16_PCB/S23-16_PCB.kicad_pcb) | PCB Layout |
@@ -70,6 +65,22 @@ Gerber and Drill files are located [here](S23-16_PCB/Fab_Files/Gerber) and use t
 The BOM is located on our shared drive [here](https://docs.google.com/spreadsheets/d/1cGQh0S1Flq79aJkekWkryKJpKwCh67Sn/edit#gid=1397198774).
 
 </details>
+
+<details>
+<summary>PCB Stackup</summary>
+
+| Material | Thickness |
+| --- | --- |
+| Copper | 1.4 mils (1 oz.) |
+| RO4003C | 8 mils |
+| Copper | 1.4 mils (1 oz.) |
+| Prepreg | ~40 mils |
+| Copper | 1.4 mils (1 oz.) |
+| RO4003C | 8 mils |
+| Copper | 1.4 mils (1 oz.) |
+| **Total** | **62 mils** |
+
+Note: Prepreg material is arbitrary, consult manufactuer.
 
 ---
 ### Microcontroller Code Documentation
