@@ -6,10 +6,7 @@
 ////////////////////////////////////////
 #include <SPI.h>
 
-// Needs more system checks
 // Needs to read system for verification purposes
-// Needs reading of system registers to properly flip bits, NVM
-// Update to using defualt reset registers and overwriting
 
 // System Defines
 #define SYNTHESIZER 2               // Chip Select,   ACTIVE HIGH    
@@ -94,7 +91,7 @@ void loop()
   int RST = Serial.parseInt();
   if(RST == 1){
     Serial.println("Starting SPI Communication startup protocol...");
-    Serial.println("Initializing Upconverter Startup Sequence...");
+    Serial.println("Initializing Synthesizer Startup Sequence...");
 
     // synthesizer
     {
@@ -103,7 +100,7 @@ void loop()
       digitalWrite(DVDD_LINEAR_REG_EN, HIGH);     // Power up 1.8V rail
       digitalWrite(SYNTHESIZER_EN, HIGH);         // Enable Synthesizer
 
-      digitalWrite(SYNTHESIZER, HIGH) // Enable Writing to Synthesizer
+      digitalWrite(SYNTHESIZER, HIGH); // Enable Writing to Synthesizer
       SPI.beginTransaction(synthesizer); // Set synthesizer SPI Settings
 
       // Synthesizer has no startup sequence
@@ -113,6 +110,7 @@ void loop()
       
     }
 
+    Serial.println("Initializing Upconverter Startup Sequence...");    
     // Upconverter
     {
     
@@ -135,38 +133,37 @@ void loop()
       { 
       RW = 0b0; // Write
       ADDR = 0b000011; // 0x03
-      readReg();
-      DATA = DATA & 0xFF7F; // Set Bit 7 to 0
+      DATA = 0x0157; // Set Bit 7 to 0, 0x01D7 is default register value
       toTransfer = (RW << 23)  | (ADDR << 17) | (DATA << 1); // Build Data without parity bit
       parity(ODD);
       data_monitor();
       SPI.transfer(toTransfer);
-      clear()
+      clear();
       }
 
       // LO INPUT PATH Single Ended Mode
       {
       RW = 0b0; // Write
       ADDR = 0b001001; // 0x09
-      DATA = DATA 0xE700; //set bits [9:6]
-      Serial.print("Data: ");
-      Serial.println(DATA, BIN);
+      DATA = 0x5580; //set bits [9:6] to 0110 for disabling LO_N, 0x5700 is defualt register value
       toTransfer = (RW << 23)  | (ADDR << 17) | (DATA << 1); // Build Data without parity bit
       parity(ODD);
       data_monitor();
       SPI.transfer(toTransfer);
-      clear()
+      clear();
+      }
 
       SPI.endTransaction();
       digitalWrite(UPCONVERTER, HIGH); // Deselect ADMV1013 Chip, Active low enable
 
       digitalWrite(POWER_AMPLIFIER_EN, HIGH); // Turn on Power Amplifier
-      }
+      
     }
 
+    Serial.println("Initializing Downconverter Startup Sequence...");
     // Down Converter
     {
-      digitalWrite(DOWNCONVERTER, LOW) // Enable Writing to Downconverter
+      digitalWrite(DOWNCONVERTER, LOW); // Enable Writing to Downconverter
       SPI.beginTransaction(downconverter); // Set downconverter SPI Settings
 
       // Startup sequence 1
@@ -181,12 +178,11 @@ void loop()
       clear();
       }
 
-      // Startup sequence 2
+      // Startup sequence 2 + I/Q Modulation Setting
       {
       RW = 0b0; // Write
       ADDR = 0b000011; // 0x03
-      readReg();
-      DATA = DATA | 0x3000; // Set Bits [13:12] to 11
+      DATA = 0x3857; // Set Bits [13:12] to 11. Bit 11 to 1 and bit 8 to 0, default register value is 0x0157
       toTransfer = (RW << 23)  | (ADDR << 17) | (DATA << 1); // Build Data without parity bit
       parity(ODD);
       data_monitor();
@@ -194,28 +190,28 @@ void loop()
       clear();
       }
 
-
+      // LO INPUT PATH Single Ended Mode
+      {
+      RW = 0b0; // Write
+      ADDR = 0b001001; // 0x09
+      DATA = 0x5580; //set bits [9:6] to 0110 for disabling LO_N, 0x5700 is defualt register value
+      toTransfer = (RW << 23)  | (ADDR << 17) | (DATA << 1); // Build Data without parity bit
+      parity(ODD);
+      data_monitor();
+      SPI.transfer(toTransfer);
+      clear();
+      }
 
       SPI.endTransaction();
       digitalWrite(DOWNCONVERTER, HIGH); // Deselect ADMV1013 Chip, Active low enable
     }
+
+    Serial.println("Start up Sequences Complete");
+
   }
 
-  
-
 }
 
-// NEEDS a read system that pulls data from register and populates the data tab
-void readReg(){
-  // TODO
-  // Overwrite RW to read
-  // Pull ADDR global variable
-  // commit a transfer of readbit and addr
-  // read returned data on MISO line
-  // populate global variable of DATA with data from register
-  // Swap RW back to write
-  // end transcation
-}
 
 
 // Calculates parity bit and appends it to data
